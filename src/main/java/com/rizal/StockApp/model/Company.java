@@ -1,10 +1,10 @@
 package com.rizal.StockApp.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.rizal.StockApp.entity.StockData;
-
-import javax.persistence.*;
-import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.util.Objects;
 
 
@@ -37,7 +37,7 @@ public class Company {
     }
 
     public void setCompanyName(String companyName) {
-        this.companyName = companyName;
+        this.companyName = companyName.toUpperCase();
     }
 
     public String getTickerSymbol() {
@@ -45,7 +45,7 @@ public class Company {
     }
 
     public void setTickerSymbol(String tickerSymbol) {
-        this.tickerSymbol = tickerSymbol;
+        this.tickerSymbol = tickerSymbol.toUpperCase();
     }
 
     public Long getId() {
