@@ -15,6 +15,7 @@ public class StockData {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long stockDataId;
+
     private BigDecimal open;
     private BigDecimal high;
     private BigDecimal low;
