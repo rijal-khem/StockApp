@@ -16,12 +16,13 @@ cp -r /home/ubuntu/artifacts  /home/ubuntu/stockApp/server/deploy.new
 echo "Step : 3"
 echo "Starting new instance of StockApp"
 echo "Check logs at /home/ubuntu/stockApp/log/stockApp.log"
-nohup java -jar -Dspring.profiles.active=prod /home/ubuntu/stockApp/server/deploy.new/StockApp-0.0.1.jar >> /home/ubuntu/stockApp/log/stockApp.log 2>&1 &
-sleep 40
+nohup java -jar -Dspring.profiles.active=prod /home/ubuntu/stockApp/server/deploy.new/StockApp-0.0.1.jar > /home/ubuntu/stockApp/log/stockApp.log 2>&1 &
 if [ $? -eq 0 ]
 then
   echo "Started Successfully"
   cat /home/ubuntu/stockApp/log/stockApp.log
+  echo "The pid of this instance is : "
+  echo "Exiting the deployment process in prod"
   exit 0
 else
   echo "Could not start" >&2
