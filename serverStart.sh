@@ -16,6 +16,6 @@ cp -r /home/ubuntu/artifacts  /home/ubuntu/stockApp/server/deploy.new
 echo "Step : 3"
 echo "Starting new instance of StockApp"
 echo "Check logs at /home/ubuntu/stockApp/log/stockApp.log"
-java -jar -Dspring.profiles.active=prod /home/ubuntu/stockApp/server/deploy.new/StockApp-0.0.1.jar > /home/ubuntu/stockApp/log/stockApp.log &
+java -jar -Dspring.profiles.active=prod /home/ubuntu/stockApp/server/deploy.new/StockApp-0.0.1.jar >> /home/ubuntu/stockApp/log/stockApp.log &
 echo "The Pid of new running instance is "
 lsof -ti :8181
