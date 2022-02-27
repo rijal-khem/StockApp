@@ -20,5 +20,5 @@ scp -r -i /Users/rizal/aws/awsEc2keyPair.pem artifacts  ubuntu@ec2-18-212-213-13
 ssh -i /Users/rizal/aws/awsEc2keyPair.pem  ubuntu@ec2-18-212-213-133.compute-1.amazonaws.com 'chmod 777 /home/ubuntu/artifacts/**'
 
 echo "SHH to ec2 host to run server-Start-Script"
-ssh -i /Users/rizal/aws/awsEc2keyPair.pem ubuntu@ec2-18-212-213-133.compute-1.amazonaws.com 'echo | . /home/ubuntu/artifacts/serverStart.sh'
+ssh -f -i /Users/rizal/aws/awsEc2keyPair.pem ubuntu@ec2-18-212-213-133.compute-1.amazonaws.com 'echo | . /home/ubuntu/artifacts/serverStart.sh'
 
