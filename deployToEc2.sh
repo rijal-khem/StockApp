@@ -3,6 +3,7 @@
 echo "Starting StockApp Automated Deployment to AWS EC2 instance with jenkins Build and Deploy."
 
 echo "I am  at  " | pwd
+mkdir artifacts
 
 echo "Copying artifacts" | cp serverStart.sh  artifacts/serverStart.sh | cp target/StockApp-0.0.1.jar  artifacts/StockApp-0.0.1.jar
 
