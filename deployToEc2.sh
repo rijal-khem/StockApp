@@ -15,10 +15,10 @@ ssh -i /Users/rizal/aws/awsEc2keyPair.pem ubuntu@ec2-18-212-213-133.compute-1.am
 
 echo "Copying Artifacts to AWS EC2 instance"
 
-scp -r -i /Users/rizal/aws/awsEc2keyPair.pem artifacts  ubuntu@ec2-18-212-213-133.compute-1.amazonaws.com:/home/ubuntu/artifacts
+scp -r -i /Users/rizal/aws/awsEc2keyPair.pem artifacts  ubuntu@ec2-18-208-190-252.compute-1.amazonaws.com:/home/ubuntu/artifacts
 
-ssh -i /Users/rizal/aws/awsEc2keyPair.pem  ubuntu@ec2-18-212-213-133.compute-1.amazonaws.com 'chmod 777 /home/ubuntu/artifacts/**'
+ssh -i /Users/rizal/aws/awsEc2keyPair.pem  ubuntu@ec2-18-208-190-252.compute-1.amazonaws.com 'chmod 777 /home/ubuntu/artifacts/**'
 
 echo "SHH to ec2 host to run server-Start-Script"
-ssh  -i /Users/rizal/aws/awsEc2keyPair.pem ubuntu@ec2-18-212-213-133.compute-1.amazonaws.com 'echo | . /home/ubuntu/artifacts/serverStart.sh'
+ssh  -i /Users/rizal/aws/awsEc2keyPair.pem ubuntu@ec2-18-208-190-252.compute-1.amazonaws.com 'echo | . /home/ubuntu/artifacts/serverStart.sh'
 
