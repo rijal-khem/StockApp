@@ -10,7 +10,7 @@ echo "Copying artifacts" | cp serverStart.sh  artifacts/serverStart.sh | cp targ
 
 
 
-ssh -i /Users/rizal/aws/awsEc2keyPair.pem ubuntu@ec2-18-212-213-133.compute-1.amazonaws.com 'echo | rm -rf /home/ubuntu/artifacts'
+ssh -i /Users/rizal/aws/awsEc2keyPair.pem ubuntu@ec2-18-208-190-252.compute-1.amazonaws.com 'echo | rm -rf /home/ubuntu/artifacts'
 
 
 echo "Copying Artifacts to AWS EC2 instance"
