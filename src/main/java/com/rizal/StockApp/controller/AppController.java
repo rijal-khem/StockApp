@@ -2,6 +2,8 @@ package com.rizal.StockApp.controller;
 
 
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.rizal.StockApp.StockDataService;
 import com.rizal.StockApp.exceptions.StockAppExceptions;
 import com.rizal.StockApp.model.Company;
 import com.rizal.StockApp.service.CompanyService;
@@ -30,6 +32,9 @@ public class AppController {
     @Autowired
     CompanyService companyService;
 
+    @Autowired
+    StockDataService stockDataService;
+
 
 
     @PostMapping("/addCompanies")
@@ -54,5 +59,11 @@ public class AppController {
     }
 
 
+    @GetMapping("/startDataCollection")
+    public void startStockDataCollectionManually() throws JsonProcessingException, InterruptedException {
+        logger.info("Started StockData Collection Manually");
+        stockDataService.updateStockData();
+        logger.info("Completed: Manual Stock Data Collection");
+    }
 
 }

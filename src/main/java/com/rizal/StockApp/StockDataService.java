@@ -11,6 +11,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
+
+
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
@@ -31,10 +33,8 @@ public class StockDataService {
     CompanyRepo companyRepo;
 
 
-
     @Scheduled(cron="0 0 16 * * Mon-Fri")
     public void updateStockData() throws JsonProcessingException, InterruptedException {
-
         logger.info("Scheduler started at {}", LocalTime.now());
         List<Company> companyList = companyRepo.findAll();
 
@@ -47,11 +47,11 @@ public class StockDataService {
                         StockData stockData = stockClient.getStockData(company);
                         newStockDataList.add(stockData);
                     }
-
             }
             saveStockData(newStockDataList);
+            logger.info("Scheduler has completed updating data at {}",LocalTime.now());
         }
-        logger.info("Scheduler has completed updating data at {}",LocalTime.now());
+
     }
 
 
@@ -60,13 +60,9 @@ public class StockDataService {
         logger.info("Stock data saved.");
     }
 
-
-
-
-
-
-
-
+   public List<StockData> getStockDataForCompany(Long company_id){
+        return stockDataRepo.getStockDataForCompany(company_id);
+   }
 
 
 

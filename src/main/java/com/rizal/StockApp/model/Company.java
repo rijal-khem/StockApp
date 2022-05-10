@@ -1,14 +1,16 @@
 package com.rizal.StockApp.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.rizal.StockApp.entity.User;
+
+import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 
 @Entity
+@Table
 public class Company {
 
     @Id
@@ -20,6 +22,9 @@ public class Company {
 
     @JsonProperty("symbol")
     private String tickerSymbol;
+
+
+
 
     public Company(){
 
@@ -53,6 +58,15 @@ public class Company {
     }
 
     public void setId(Long companyId) {
+        this.companyId = companyId;
+    }
+
+
+    public Long getCompanyId() {
+        return companyId;
+    }
+
+    public void setCompanyId(Long companyId) {
         this.companyId = companyId;
     }
 
